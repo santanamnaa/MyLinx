@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProfilUsahaController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Tenant\TenantPageController;
 use Illuminate\Support\Facades\Route;
@@ -8,10 +10,6 @@ use Illuminate\Support\Facades\Route;
 |==========================================================================
 | CENTRAL ROUTES — MyLinx Platform
 |==========================================================================
-|
-| These routes handle the main MyLinx platform: landing page, auth,
-| and the authenticated dashboard. They are NOT tenant-scoped.
-|
 */
 
 // Landing page (public)
@@ -19,14 +17,30 @@ Route::get('/', function () {
     return view('landing');
 })->name('landing');
 
-// Authenticated area (Breeze provides login/register/password routes via routes/auth.php)
+/*
+|==========================================================================
+| AUTHENTICATED ROUTES — Tenant Dashboard CMS
+|==========================================================================
+*/
+
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    // Dashboard — redirects tenant_admin to their tenant, super_admin sees platform overview
+    // Dashboard
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
+    // ── Produk CRUD ─────────────────────────────────────────
+    Route::resource('produk', ProdukController::class)
+        ->except(['show']);  // No public show page from dashboard
+
+    // ── Profil Usaha (Edit & Update only) ───────────────────
+    Route::get('/profil-usaha', [ProfilUsahaController::class, 'edit'])
+        ->name('profil-usaha.edit');
+    Route::patch('/profil-usaha', [ProfilUsahaController::class, 'update'])
+        ->name('profil-usaha.update');
+
+    // ── Settings (placeholder views) ────────────────────────
     Route::get('/settings/website', function () {
         return view('settings.website');
     })->name('settings.website');
@@ -35,18 +49,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('settings.template');
     })->name('settings.template');
 
+    // ── Portfolio Builder (placeholder) ─────────────────────
     Route::get('/portfolio/builder', function () {
         return view('portfolio.builder');
     })->name('portfolio.builder');
 
-    Route::get('/produk', function () {
-        return view('produk.index');
-    })->name('produk.index');
-
-    Route::get('/produk/create', function () {
-        return view('produk.create');
-    })->name('produk.create');
-
+    // ── Order (placeholder views) ───────────────────────────
     Route::get('/order', function () {
         return view('order.index');
     })->name('order.index');
@@ -55,36 +63,26 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('order.show');
     })->name('order.show');
 
+    // ── Payment (placeholder view) ──────────────────────────
     Route::get('/payment', function () {
         return view('payment.index');
     })->name('payment.index');
 });
 
-// Breeze profile management routes
+// Breeze user account profile (separate from business profile)
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Breeze auth routes (login, register, password reset, email verification)
+// Breeze auth routes
 require __DIR__ . '/auth.php';
 
 /*
 |==========================================================================
 | TENANT ROUTES — Public UMKM Storefronts
 |==========================================================================
-|
-| These routes handle the dynamically generated tenant pages.
-| Accessed via path-based slugs: mylinx.com/{tenant_slug}
-|
-| Route Model Binding resolves {tenant} using Tenant::getRouteKeyName()
-| which returns 'slug' (defined in the Tenant model).
-|
-| The 'tenant' middleware (IdentifyTenantBySlug) handles:
-| - 404 if slug doesn't exist (Route Model Binding)
-| - 404 if tenant status is inactive
-| - Binding the Tenant instance into the Service Container
 |
 | IMPORTANT: This group MUST be registered last to avoid catching
 | other routes like /login, /register, /dashboard, etc.
@@ -95,17 +93,6 @@ Route::middleware(['tenant'])
     ->prefix('{tenant}')
     ->group(function () {
 
-        // Tenant storefront homepage (profil usaha + products)
         Route::get('/', [TenantPageController::class, 'show'])
             ->name('tenant.show');
-
-        // Future tenant sub-pages can be added here:
-        // Route::get('/produk/{produk}', [TenantPageController::class, 'produkDetail'])
-        //     ->name('tenant.produk.detail');
-        //
-        // Route::get('/portofolio', [TenantPageController::class, 'portofolio'])
-        //     ->name('tenant.portofolio');
-        //
-        // Route::post('/order', [TenantOrderController::class, 'store'])
-        //     ->name('tenant.order.store');
     });

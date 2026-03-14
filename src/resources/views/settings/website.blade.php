@@ -11,17 +11,17 @@
 
     <!-- Content wrapper -->
     <div class="w-full pt-5 sm:pt-6 lg:pr-4 xl:pr-8">
-        
+
         <!-- Section 1: Shop Subdomain -->
         <div class="mb-14">
             <h2 class="text-[1.75rem] font-serif text-[#1A1C19] mb-1.5 leading-tight">Shop Subdomain</h2>
             <p class="text-[13.5px] text-[#6A7B8C] font-medium mb-5">Choose a unique address for your online store.</p>
-            
+
             <!-- Shop Subdomain Input row -->
             <div class="flex flex-col sm:flex-row gap-4 sm:gap-3">
                 <div class="flex items-center flex-1 border border-[#E8EBED] rounded-[1rem] bg-white h-[54px] px-5 shadow-sm focus-within:border-[#2E5136] focus-within:ring-1 focus-within:ring-[#2E5136] transition-colors">
                     <svg class="w-[18px] h-[18px] text-gray-400 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
-                    <input type="text" class="flex-1 bg-transparent border-none outline-none text-[14.5px] font-medium text-[#1A1C19] p-0 focus:ring-0 placeholder:text-gray-300 w-full" value="artisan-santana-store" placeholder="your-store-name">
+                    <input type="text" class="flex-1 bg-transparent border-none outline-none text-[14.5px] font-medium text-[#1A1C19] p-0 focus:ring-0 placeholder:text-gray-300 w-full" value="artisan-store" placeholder="your-store-name">
                     <span class="text-[14.5px] font-medium text-gray-400 pl-2 opacity-80">.mylinx.id</span>
                 </div>
                 <!-- Light grayish-blue pill button -->
@@ -33,9 +33,9 @@
         <div class="mb-14">
             <h2 class="text-[1.75rem] font-serif text-[#1A1C19] mb-1.5 leading-tight">Store Mode</h2>
             <p class="text-[13.5px] text-[#6A7B8C] font-medium mb-5">How do you want to present your work?</p>
-            
+
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-                
+
                 <!-- Portfolio Mode -->
                 <div class="border border-[#E8EBED] rounded-[1.2rem] bg-white p-6 cursor-pointer hover:border-gray-300 transition-colors group shadow-sm">
                     <div class="w-[38px] h-[38px] bg-[#F4F6F9] group-hover:bg-[#E8EBED] text-[#6A7B8C] rounded-full flex items-center justify-center mb-5 transition-colors">
@@ -44,7 +44,7 @@
                     <h3 class="text-[14px] font-bold text-[#1A1C19] mb-1.5">Portfolio Mode</h3>
                     <p class="text-[12px] text-[#6A7B8C] font-medium leading-relaxed pr-2">Showcase your work without direct purchasing options.</p>
                 </div>
-                
+
                 <!-- Marketplace Mode -->
                 <div class="border border-[#E8EBED] rounded-[1.2rem] bg-white p-6 cursor-pointer hover:border-gray-300 transition-colors group shadow-sm">
                     <div class="w-[38px] h-[38px] bg-[#F4F6F9] group-hover:bg-[#E8EBED] text-[#6A7B8C] rounded-full flex items-center justify-center mb-5 transition-colors">
@@ -60,7 +60,7 @@
                     <div class="absolute top-4 right-4 w-[20px] h-[20px] bg-[#2E5136] rounded-full flex items-center justify-center text-white shadow-sm">
                         <svg class="w-[12px] h-[12px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path></svg>
                     </div>
-                    
+
                     <div class="w-[38px] h-[38px] bg-white text-[#1A1C19] rounded-full flex items-center justify-center mb-5 border border-[#E8EBED]">
                         <svg class="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3l8 4-8 4-8-4 8-4zM20 11l-8 4-8-4m16 4l-8 4-8-4"></path></svg>
                     </div>
@@ -75,9 +75,9 @@
         <div class="mb-6">
             <h2 class="text-[1.75rem] font-serif text-[#1A1C19] mb-1.5 leading-tight">Active Template</h2>
             <p class="text-[13.5px] text-[#6A7B8C] font-medium mb-5">The current look and feel of your website.</p>
-            
+
             <div class="border border-[#E8EBED] rounded-3xl bg-white p-6 sm:p-7 flex flex-col md:flex-row gap-8 items-start md:items-center shadow-sm">
-                
+
                 <!-- Mockup side -->
                 <div class="w-full md:w-[260px] aspect-[4/3] bg-[#fcf2ed] rounded-[1rem] flex-shrink-0 flex justify-center items-center overflow-hidden border border-[#faeadd]">
                     <!-- Basic laptop mockup shape -->
@@ -104,7 +104,7 @@
                          <span class="bg-[#e9f2ee] text-[#2E5136] text-[9.5px] font-bold px-2.5 py-[3px] uppercase tracking-widest rounded-md mt-1">ACTIVE</span>
                     </div>
                     <p class="text-[13.5px] text-[#6A7B8C] font-medium leading-relaxed mb-7 max-w-sm">A clean, whitespace-heavy design perfect for creative professionals. Focuses on imagery and typography to let your work stand out.</p>
-                    
+
                     <div class="flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto">
                          <button class="w-full sm:w-auto flex items-center justify-center gap-2 border border-[#E8EBED] rounded-full px-6 py-[10px] text-[13px] font-bold text-[#1A1C19] hover:bg-gray-50 transition-colors shadow-sm whitespace-nowrap">
                               <svg class="w-[18px] h-[18px] text-gray-500 font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>

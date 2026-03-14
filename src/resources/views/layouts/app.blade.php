@@ -53,9 +53,11 @@
             <a href="{{ route('payment.index') }}" class="flex items-center gap-3 px-4 py-3 {{ request()->routeIs('payment.index') ? 'bg-[#2E5136] text-white' : 'text-[#8b9196] hover:text-white hover:bg-white/5' }} rounded-xl text-sm font-semibold transition-colors">
                 <span>Payment</span>
             </a>
-            <a href="{{ route('profile.edit') }}" class="flex items-center gap-3 px-4 py-3 text-[#8b9196] hover:text-white hover:bg-white/5 rounded-xl text-sm font-semibold transition-colors mt-8">
-                <span>Profile</span>
-            </a>
+            @if(Auth::user()->tenant_id)
+                <a href="{{ route('profil-usaha.edit') }}" class="flex items-center gap-3 px-4 py-3 text-[#8b9196] hover:text-white hover:bg-white/5 rounded-xl text-sm font-semibold transition-colors mt-8">
+                    <span>Profile</span>
+                </a>
+            @endif
             <form method="POST" action="{{ route('logout') }}" class="block">
                 @csrf
                 <button type="submit" class="w-full flex items-center gap-3 px-4 py-3 text-[#D73A27] hover:bg-red-500/10 rounded-xl text-sm font-semibold transition-colors text-left">
@@ -63,25 +65,18 @@
                 </button>
             </form>
         </nav>
-        <div class="px-4 pb-8 mt-auto hidden sm:block">
-            <div class="bg-gradient-to-br from-[#2E5136] to-[#1f3824] rounded-[18px] p-5 shadow-lg border border-white/10 relative overflow-hidden">
-                <div class="text-[10px] text-white font-bold uppercase tracking-widest mb-1 opacity-80 relative z-10">PLAN</div>
-                <div class="text-white font-serif text-[1.35rem] tracking-wide mb-5 relative z-10 leading-none">UMKM Pro</div>
-                <a href="#" class="block w-full bg-white text-center py-2 rounded-full text-xs font-bold text-[#1A1C19] hover:bg-gray-100 transition-colors shadow-sm relative z-10">Upgrade Plan</a>
-            </div>
-        </div>
     </aside>
 
     <!-- Main Content -->
     <main class="flex-1 flex flex-col min-w-0 {{ isset($whiteBg) && $whiteBg == 'true' ? 'bg-white' : 'bg-[#F5F6F8]' }} h-screen overflow-y-auto w-full relative">
-        
+
         <!-- Mobile Topbar -->
         <div class="lg:hidden sticky top-0 bg-white/95 backdrop-blur shadow-sm border-b border-[#E8EBED] px-4 py-3 flex items-center justify-between z-30">
             <button @click="sidebarOpen = true" class="p-2 -ml-2 text-gray-600 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#2E5136]">
                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
             <div class="flex items-center gap-2">
-                <span class="text-xs font-bold text-[#1A1C19]">{{ Auth::user()->name ?? 'Santana Mena' }}</span>
+                <span class="text-xs font-bold text-[#1A1C19]">{{ Auth::user()->nama }}</span>
                 <div class="w-8 h-8 rounded-full bg-[#fcead8] uppercase flex items-center justify-center font-bold text-[11px] text-[#A6785D]">
                     SM
                 </div>
@@ -95,7 +90,7 @@
                     {{ $header }}
                 @endif
             </div>
-            
+
             @if(!isset($hideProfile))
             <div class="hidden lg:flex items-center">
                 <div class="flex items-center gap-3 py-1.5 pl-1.5 pr-5 bg-white border border-[#E8EBED] rounded-full shadow-sm cursor-pointer hover:bg-gray-50">
@@ -103,7 +98,7 @@
                         SM
                     </div>
                     <div class="flex flex-col text-left">
-                        <span class="text-[13px] font-bold text-[#1A1C19] leading-tight">{{ Auth::user()->name ?? 'Santana Mena' }}</span>
+                        <span class="text-[13px] font-bold text-[#1A1C19] leading-tight">{{ Auth::user()->nama }}</span>
                         <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest leading-tight mt-0.5">UMKM OWNER</span>
                     </div>
                 </div>
@@ -115,7 +110,7 @@
         <div class="px-4 lg:px-10 pb-8 mt-2 w-full max-w-[1400px] mx-auto flex-1">
             {{ $slot }}
         </div>
-        
+
         <!-- Footer -->
         <div class="px-4 lg:px-10 pb-10 w-full max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-bold text-gray-400 uppercase tracking-widest text-center md:text-left">
             <p>&copy; 2026 MyLinx Inc. All rights reserved.</p>
