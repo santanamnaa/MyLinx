@@ -32,7 +32,7 @@ class ProfilUsahaController extends Controller
             ]
         );
 
-        return view('profile.edit', compact('profil'));
+        return view('profil-usaha.edit', compact('profil'));
     }
 
     /**
