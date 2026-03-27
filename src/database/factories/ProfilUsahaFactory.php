@@ -37,12 +37,12 @@ class ProfilUsahaFactory extends Factory
         ];
 
         return [
-            'tenant_id'  => Tenant::factory(),
+            'tenant_id' => Tenant::factory(),
             'nama_usaha' => $usaha['nama'],
-            'deskripsi'  => $usaha['desk'],
-            'alamat'     => fake()->randomElement($cities),
-            'no_hp'      => '08' . fake()->numerify('##########'),
-            'logo'       => null,
+            'deskripsi' => $usaha['desk'],
+            'alamat' => fake()->randomElement($cities),
+            'no_hp' => '08'.fake()->numerify('##########'),
+            'logo' => null,
         ];
     }
 }

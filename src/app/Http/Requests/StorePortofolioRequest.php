@@ -14,18 +14,18 @@ class StorePortofolioRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'judul'     => ['required', 'string', 'max:255'],
+            'judul' => ['required', 'string', 'max:255'],
             'deskripsi' => ['required', 'string', 'max:5000'],
-            'gambar'    => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:5120'],
+            'gambar' => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:5120'],
         ];
     }
 
     public function attributes(): array
     {
         return [
-            'judul'     => 'judul portofolio',
+            'judul' => 'judul portofolio',
             'deskripsi' => 'deskripsi',
-            'gambar'    => 'gambar cover',
+            'gambar' => 'gambar cover',
         ];
     }
 
@@ -33,8 +33,8 @@ class StorePortofolioRequest extends FormRequest
     {
         return [
             'gambar.required' => 'Gambar cover wajib diunggah.',
-            'gambar.max'      => 'Ukuran gambar maksimal 5MB.',
-            'gambar.mimes'    => 'Format gambar harus JPG, JPEG, atau PNG.',
+            'gambar.max' => 'Ukuran gambar maksimal 5MB.',
+            'gambar.mimes' => 'Format gambar harus JPG, JPEG, atau PNG.',
         ];
     }
 }

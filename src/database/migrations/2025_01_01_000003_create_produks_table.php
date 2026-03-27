@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('produks', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('tenant_id')
-                  ->constrained('tenants')
-                  ->cascadeOnUpdate()
-                  ->cascadeOnDelete();
+                ->constrained('tenants')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
             $table->string('nama_produk');
             $table->text('deskripsi');
             $table->decimal('harga', 12, 2);

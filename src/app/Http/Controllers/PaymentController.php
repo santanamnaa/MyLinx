@@ -18,8 +18,8 @@ class PaymentController extends Controller
     public function index(): View
     {
         $invoices = Invoice::whereHas('order', function ($query) {
-                $query->where('tenant_id', auth()->user()->tenant_id);
-            })
+            $query->where('tenant_id', auth()->user()->tenant_id);
+        })
             ->with(['order' => fn ($q) => $q->select('id', 'kode_order', 'nama_pembeli', 'total_harga', 'status')])
             ->orderBy('created_at', 'desc')
             ->paginate(10);

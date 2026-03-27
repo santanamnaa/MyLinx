@@ -4,9 +4,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PortofolioController;
-use App\Http\Controllers\ProfilUsahaController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfilUsahaController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\Tenant\TenantOrderController;
 use App\Http\Controllers\Tenant\TenantPageController;
@@ -99,7 +99,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // Breeze auth routes (login, register, password reset, email verification)
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
 
 /*
 |==========================================================================

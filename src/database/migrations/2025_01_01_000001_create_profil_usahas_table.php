@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('profil_usahas', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('tenant_id')
-                  ->constrained('tenants')
-                  ->cascadeOnUpdate()
-                  ->cascadeOnDelete();
+                ->constrained('tenants')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
             $table->string('nama_usaha');
             $table->text('deskripsi');
             $table->string('alamat');

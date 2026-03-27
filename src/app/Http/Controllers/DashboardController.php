@@ -82,10 +82,10 @@ class DashboardController extends Controller
      */
     private function superAdminDashboard(): View
     {
-        $totalTenants   = Tenant::count();
-        $totalUsers     = User::count();
-        $totalOrders    = Order::count();
-        $totalRevenue   = Order::whereHas('invoice', fn ($q) => $q->where('status_pembayaran', 'paid'))
+        $totalTenants = Tenant::count();
+        $totalUsers = User::count();
+        $totalOrders = Order::count();
+        $totalRevenue = Order::whereHas('invoice', fn ($q) => $q->where('status_pembayaran', 'paid'))
             ->sum('total_harga');
 
         // Recent tenants

@@ -57,7 +57,7 @@ class Produk extends Model
 
         return $query->where(function (Builder $q) use ($term) {
             $q->where('nama_produk', 'ilike', "%{$term}%")
-              ->orWhere('deskripsi', 'ilike', "%{$term}%");
+                ->orWhere('deskripsi', 'ilike', "%{$term}%");
         });
     }
 
@@ -70,9 +70,9 @@ class Produk extends Model
     {
         return match ($status) {
             'available' => $query->where('stok', '>', 0)->where('status', true),
-            'empty'     => $query->where('stok', '<=', 0),
-            'inactive'  => $query->where('status', false),
-            default     => $query,
+            'empty' => $query->where('stok', '<=', 0),
+            'inactive' => $query->where('status', false),
+            default => $query,
         };
     }
 

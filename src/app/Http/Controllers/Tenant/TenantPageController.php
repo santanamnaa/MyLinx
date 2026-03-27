@@ -23,14 +23,14 @@ class TenantPageController extends Controller
             'profilUsaha',
             'portofolios' => fn ($q) => $q->orderBy('created_at', 'desc'),
             'produks' => fn ($q) => $q->where('status', true)
-                                      ->where('stok', '>', 0)
-                                      ->orderBy('created_at', 'desc'),
+                ->where('stok', '>', 0)
+                ->orderBy('created_at', 'desc'),
         ]);
 
         return view('tenant.show', [
-            'tenant'      => $tenant,
-            'profil'      => $tenant->profilUsaha,
-            'produks'     => $tenant->produks,
+            'tenant' => $tenant,
+            'profil' => $tenant->profilUsaha,
+            'produks' => $tenant->produks,
             'portofolios' => $tenant->portofolios,
         ]);
     }

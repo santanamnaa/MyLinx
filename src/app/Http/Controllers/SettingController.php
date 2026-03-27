@@ -48,7 +48,7 @@ class SettingController extends Controller
         $templates = Template::where('is_active', true)->get();
 
         return view('settings.template', [
-            'tenant'    => $tenant,
+            'tenant' => $tenant,
             'templates' => $templates,
         ]);
     }

@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('nama_tenant');
             $table->string('slug')->unique();
             $table->foreignUuid('template_id')
-                  ->constrained('templates')
-                  ->cascadeOnUpdate()
-                  ->restrictOnDelete();
+                ->constrained('templates')
+                ->cascadeOnUpdate()
+                ->restrictOnDelete();
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

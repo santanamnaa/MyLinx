@@ -65,7 +65,7 @@ class PortofolioController extends Controller
 
         return view('portfolio.builder', [
             'portofolios' => $portofolios,
-            'editing'     => $portfolio,
+            'editing' => $portfolio,
         ]);
     }
 

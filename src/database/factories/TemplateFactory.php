@@ -28,9 +28,9 @@ class TemplateFactory extends Factory
 
         return [
             'nama_template' => $template['nama'],
-            'kategori'      => $template['kategori'],
-            'preview_url'   => '/images/templates/' . \Illuminate\Support\Str::slug($template['nama']) . '.png',
-            'is_active'     => true,
+            'kategori' => $template['kategori'],
+            'preview_url' => '/images/templates/'.\Illuminate\Support\Str::slug($template['nama']).'.png',
+            'is_active' => true,
         ];
     }
 }

@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -56,49 +56,49 @@ class RegisteredUserController extends Controller
                 // Fallback: create a minimal template if none exist
                 $template = Template::create([
                     'nama_template' => 'Default',
-                    'kategori'      => 'general',
-                    'preview_url'   => '/images/templates/default.png',
-                    'is_active'     => true,
+                    'kategori' => 'general',
+                    'preview_url' => '/images/templates/default.png',
+                    'is_active' => true,
                 ]);
             }
 
             // ── Step 2: Create the Tenant ────────────────────────
-            $storeName = $request->store_name ?: $request->name . "'s Store";
-            $baseSlug  = Str::slug($storeName);
+            $storeName = $request->store_name ?: $request->name."'s Store";
+            $baseSlug = Str::slug($storeName);
 
             // Ensure slug uniqueness
             $slug = $baseSlug;
             $counter = 1;
             while (Tenant::where('slug', $slug)->exists()) {
-                $slug = $baseSlug . '-' . $counter;
+                $slug = $baseSlug.'-'.$counter;
                 $counter++;
             }
 
             $tenant = Tenant::create([
                 'nama_tenant' => $storeName,
-                'slug'        => $slug,
+                'slug' => $slug,
                 'template_id' => $template->id,
-                'status'      => true,
+                'status' => true,
             ]);
 
             // ── Step 3: Create the User (linked to tenant) ──────
             $user = User::create([
                 'tenant_id' => $tenant->id,
-                'nama'      => $request->name,
-                'email'     => $request->email,
-                'password'  => Hash::make($request->password),
-                'role'      => 'tenant_admin',
+                'nama' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role' => 'tenant_admin',
             ]);
 
             // ── Step 4: Create empty ProfilUsaha ─────────────────
             // This prevents the 500 error when a new user visits /profil-usaha
             // before filling out their business profile.
             ProfilUsaha::create([
-                'tenant_id'  => $tenant->id,
+                'tenant_id' => $tenant->id,
                 'nama_usaha' => $storeName,
-                'deskripsi'  => '',
-                'alamat'     => '',
-                'no_hp'      => '',
+                'deskripsi' => '',
+                'alamat' => '',
+                'no_hp' => '',
             ]);
 
             return $user;

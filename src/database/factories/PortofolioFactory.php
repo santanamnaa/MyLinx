@@ -30,9 +30,9 @@ class PortofolioFactory extends Factory
 
         return [
             'tenant_id' => Tenant::factory(),
-            'judul'     => $item['judul'],
+            'judul' => $item['judul'],
             'deskripsi' => $item['desk'],
-            'gambar'    => 'portofolio/placeholder-' . fake()->numberBetween(1, 5) . '.jpg',
+            'gambar' => 'portofolio/placeholder-'.fake()->numberBetween(1, 5).'.jpg',
         ];
     }
 }

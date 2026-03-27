@@ -19,16 +19,16 @@ class ProfilUsahaController extends Controller
     public function edit(): View
     {
         if (! auth()->user()->tenant_id) {
-        abort(403, 'Akun Super Admin tidak memiliki profil usaha.');
+            abort(403, 'Akun Super Admin tidak memiliki profil usaha.');
         }
 
         $profil = ProfilUsaha::firstOrCreate(
             ['tenant_id' => auth()->user()->tenant_id],
             [
                 'nama_usaha' => auth()->user()->tenant->nama_tenant ?? '',
-                'deskripsi'  => '',
-                'alamat'     => '',
-                'no_hp'      => '',
+                'deskripsi' => '',
+                'alamat' => '',
+                'no_hp' => '',
             ]
         );
 

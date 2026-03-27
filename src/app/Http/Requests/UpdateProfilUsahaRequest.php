@@ -21,10 +21,10 @@ class UpdateProfilUsahaRequest extends FormRequest
     {
         return [
             'nama_usaha' => ['required', 'string', 'max:255'],
-            'deskripsi'  => ['required', 'string', 'max:5000'],
-            'alamat'     => ['required', 'string', 'max:500'],
-            'no_hp'      => ['required', 'string', 'max:20'],
-            'logo'       => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
+            'deskripsi' => ['required', 'string', 'max:5000'],
+            'alamat' => ['required', 'string', 'max:500'],
+            'no_hp' => ['required', 'string', 'max:20'],
+            'logo' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
         ];
     }
 
@@ -35,10 +35,10 @@ class UpdateProfilUsahaRequest extends FormRequest
     {
         return [
             'nama_usaha' => 'nama usaha',
-            'deskripsi'  => 'deskripsi brand',
-            'alamat'     => 'alamat',
-            'no_hp'      => 'nomor WhatsApp',
-            'logo'       => 'logo usaha',
+            'deskripsi' => 'deskripsi brand',
+            'alamat' => 'alamat',
+            'no_hp' => 'nomor WhatsApp',
+            'logo' => 'logo usaha',
         ];
     }
 
@@ -48,7 +48,7 @@ class UpdateProfilUsahaRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'logo.max'   => 'Ukuran logo maksimal 2MB.',
+            'logo.max' => 'Ukuran logo maksimal 2MB.',
             'logo.mimes' => 'Format logo harus JPG, JPEG, atau PNG.',
         ];
     }

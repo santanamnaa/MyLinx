@@ -55,8 +55,8 @@ class Order extends Model
 
         return $query->where(function (Builder $q) use ($term) {
             $q->where('kode_order', 'ilike', "%{$term}%")
-              ->orWhere('nama_pembeli', 'ilike', "%{$term}%")
-              ->orWhere('email_pembeli', 'ilike', "%{$term}%");
+                ->orWhere('nama_pembeli', 'ilike', "%{$term}%")
+                ->orWhere('email_pembeli', 'ilike', "%{$term}%");
         });
     }
 

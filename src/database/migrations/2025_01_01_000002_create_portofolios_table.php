@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('portofolios', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('tenant_id')
-                  ->constrained('tenants')
-                  ->cascadeOnUpdate()
-                  ->cascadeOnDelete();
+                ->constrained('tenants')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
             $table->string('judul');
             $table->text('deskripsi');
             $table->string('gambar');

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('order_id')
-                  ->constrained('orders')
-                  ->cascadeOnUpdate()
-                  ->cascadeOnDelete();
+                ->constrained('orders')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
             $table->string('nomor_invoice')->unique();
             $table->string('qr_code_url')->nullable();
             $table->string('status_pembayaran')->default('unpaid');

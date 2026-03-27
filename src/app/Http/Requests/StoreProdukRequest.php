@@ -22,11 +22,11 @@ class StoreProdukRequest extends FormRequest
     {
         return [
             'nama_produk' => ['required', 'string', 'max:255'],
-            'deskripsi'   => ['required', 'string', 'max:2000'],
-            'harga'       => ['required', 'numeric', 'min:0', 'max:9999999999'],
-            'stok'        => ['required', 'integer', 'min:0'],
-            'gambar'      => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:5120'],
-            'status'      => ['sometimes', 'boolean'],
+            'deskripsi' => ['required', 'string', 'max:2000'],
+            'harga' => ['required', 'numeric', 'min:0', 'max:9999999999'],
+            'stok' => ['required', 'integer', 'min:0'],
+            'gambar' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:5120'],
+            'status' => ['sometimes', 'boolean'],
         ];
     }
 
@@ -37,10 +37,10 @@ class StoreProdukRequest extends FormRequest
     {
         return [
             'nama_produk' => 'nama produk',
-            'deskripsi'   => 'deskripsi',
-            'harga'       => 'harga',
-            'stok'        => 'stok',
-            'gambar'      => 'foto produk',
+            'deskripsi' => 'deskripsi',
+            'harga' => 'harga',
+            'stok' => 'stok',
+            'gambar' => 'foto produk',
         ];
     }
 

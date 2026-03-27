@@ -33,16 +33,16 @@ class UpdateWebsiteSettingsRequest extends FormRequest
     {
         return [
             'nama_tenant' => 'nama toko',
-            'slug'        => 'URL toko',
+            'slug' => 'URL toko',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'slug.unique'     => 'URL ini sudah digunakan oleh toko lain. Silakan pilih yang berbeda.',
+            'slug.unique' => 'URL ini sudah digunakan oleh toko lain. Silakan pilih yang berbeda.',
             'slug.alpha_dash' => 'URL toko hanya boleh berisi huruf, angka, strip (-), dan garis bawah (_).',
-            'slug.lowercase'  => 'URL toko harus menggunakan huruf kecil.',
+            'slug.lowercase' => 'URL toko harus menggunakan huruf kecil.',
         ];
     }
 }

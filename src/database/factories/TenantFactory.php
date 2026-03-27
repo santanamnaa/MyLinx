@@ -23,9 +23,9 @@ class TenantFactory extends Factory
 
         return [
             'nama_tenant' => $nama,
-            'slug'        => Str::slug($nama) . '-' . fake()->unique()->numberBetween(100, 999),
+            'slug' => Str::slug($nama).'-'.fake()->unique()->numberBetween(100, 999),
             'template_id' => Template::factory(),
-            'status'      => true,
+            'status' => true,
         ];
     }
 }

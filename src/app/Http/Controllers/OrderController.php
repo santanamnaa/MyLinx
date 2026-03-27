@@ -66,10 +66,10 @@ class OrderController extends Controller
         // Sync invoice payment status based on order status
         if ($order->invoice) {
             match ($newStatus) {
-                'completed'  => $order->invoice->update(['status_pembayaran' => 'paid']),
-                'cancelled'  => $order->invoice->update(['status_pembayaran' => 'cancelled']),
+                'completed' => $order->invoice->update(['status_pembayaran' => 'paid']),
+                'cancelled' => $order->invoice->update(['status_pembayaran' => 'cancelled']),
                 'processing' => $order->invoice->update(['status_pembayaran' => 'unpaid']),
-                default      => null,
+                default => null,
             };
         }
 
@@ -89,7 +89,7 @@ class OrderController extends Controller
 
         return redirect()
             ->route('order.show', $order)
-            ->with('success', 'Status order berhasil diperbarui menjadi "' . $newStatus . '".');
+            ->with('success', 'Status order berhasil diperbarui menjadi "'.$newStatus.'".');
     }
 
     /**

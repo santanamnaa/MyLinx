@@ -25,9 +25,9 @@ class StoreTenantOrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama_pembeli'  => ['required', 'string', 'max:255'],
+            'nama_pembeli' => ['required', 'string', 'max:255'],
             'email_pembeli' => ['required', 'email', 'max:255'],
-            'jumlah'        => ['required', 'integer', 'min:1', 'max:999'],
+            'jumlah' => ['required', 'integer', 'min:1', 'max:999'],
         ];
     }
 
@@ -37,9 +37,9 @@ class StoreTenantOrderRequest extends FormRequest
     public function attributes(): array
     {
         return [
-            'nama_pembeli'  => 'nama lengkap',
+            'nama_pembeli' => 'nama lengkap',
             'email_pembeli' => 'email',
-            'jumlah'        => 'jumlah pesanan',
+            'jumlah' => 'jumlah pesanan',
         ];
     }
 
@@ -49,11 +49,11 @@ class StoreTenantOrderRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'nama_pembeli.required'  => 'Mohon isi nama lengkap Anda.',
+            'nama_pembeli.required' => 'Mohon isi nama lengkap Anda.',
             'email_pembeli.required' => 'Mohon isi alamat email Anda.',
-            'email_pembeli.email'    => 'Format email tidak valid.',
-            'jumlah.required'        => 'Mohon tentukan jumlah pesanan.',
-            'jumlah.min'             => 'Jumlah pesanan minimal 1.',
+            'email_pembeli.email' => 'Format email tidak valid.',
+            'jumlah.required' => 'Mohon tentukan jumlah pesanan.',
+            'jumlah.min' => 'Jumlah pesanan minimal 1.',
         ];
     }
 }

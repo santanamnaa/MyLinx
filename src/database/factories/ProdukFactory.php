@@ -34,13 +34,13 @@ class ProdukFactory extends Factory
         $produk = fake()->randomElement($produkList);
 
         return [
-            'tenant_id'   => Tenant::factory(),
+            'tenant_id' => Tenant::factory(),
             'nama_produk' => $produk['nama'],
-            'deskripsi'   => $produk['desk'],
-            'harga'       => fake()->randomElement([25000, 49000, 75000, 125000, 185000, 250000, 350000, 675000, 1250000]),
-            'stok'        => fake()->numberBetween(0, 100),
-            'gambar'      => null,
-            'status'      => fake()->boolean(85), // 85% chance active
+            'deskripsi' => $produk['desk'],
+            'harga' => fake()->randomElement([25000, 49000, 75000, 125000, 185000, 250000, 350000, 675000, 1250000]),
+            'stok' => fake()->numberBetween(0, 100),
+            'gambar' => null,
+            'status' => fake()->boolean(85), // 85% chance active
         ];
     }
 
